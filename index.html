@@ -11,6 +11,36 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+  <div class="bg-scene" aria-hidden="true">
+    <div class="bg-scene__nebula bg-scene__nebula--red"></div>
+    <div class="bg-scene__nebula bg-scene__nebula--blue"></div>
+    <div class="bg-scene__grid"></div>
+    <svg class="bg-scene__shards" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+      <g class="shard shard--1">
+        <polygon points="180,120 230,190 200,300 150,210" />
+      </g>
+      <g class="shard shard--2">
+        <polygon points="1240,180 1300,230 1280,340 1210,270" />
+      </g>
+      <g class="shard shard--3">
+        <polygon points="720,560 760,610 745,700 700,640" />
+      </g>
+      <g class="shard shard--4">
+        <polygon points="380,680 410,720 395,790 360,740" />
+      </g>
+      <g class="shard shard--5">
+        <polygon points="1080,620 1115,660 1100,740 1060,690" />
+      </g>
+      <circle class="bg-scene__particle p1" cx="320" cy="240" r="2.5" />
+      <circle class="bg-scene__particle p2" cx="980" cy="160" r="2" />
+      <circle class="bg-scene__particle p3" cx="560" cy="430" r="1.8" />
+      <circle class="bg-scene__particle p4" cx="1250" cy="520" r="2.2" />
+      <circle class="bg-scene__particle p5" cx="160" cy="560" r="1.6" />
+      <circle class="bg-scene__particle p6" cx="840" cy="780" r="2" />
+    </svg>
+    <div class="bg-scene__vignette"></div>
+  </div>
+
   <header class="nav" id="nav">
     <div class="nav__inner container">
       <a href="#home" class="nav__logo">SCB<span class="accent">.</span></a>

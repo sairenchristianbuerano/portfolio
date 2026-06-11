@@ -81,6 +81,97 @@ strong {
   color: var(--accent);
 }
 
+/* ============ Cyberspace background scene ============ */
+.bg-scene {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.bg-scene__nebula {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+}
+
+.bg-scene__nebula--red {
+  width: 55vw;
+  height: 55vw;
+  top: -18%;
+  right: -12%;
+  background: radial-gradient(circle, rgba(255, 60, 10, 0.22) 0%, transparent 65%);
+}
+
+.bg-scene__nebula--blue {
+  width: 60vw;
+  height: 60vw;
+  bottom: -22%;
+  left: -16%;
+  background: radial-gradient(circle, rgba(40, 90, 255, 0.14) 0%, transparent 65%);
+}
+
+.bg-scene__grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(55deg, rgba(255, 255, 255, 0.028) 0 1px, transparent 1px 90px),
+    repeating-linear-gradient(-55deg, rgba(255, 255, 255, 0.02) 0 1px, transparent 1px 130px);
+}
+
+.bg-scene__shards {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.shard polygon {
+  fill: rgba(255, 48, 16, 0.1);
+  stroke: rgba(255, 90, 0, 0.45);
+  stroke-width: 1.5;
+}
+
+.shard {
+  filter: drop-shadow(0 0 8px rgba(255, 60, 10, 0.55));
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+.shard--1 { animation: shardFloat 26s ease-in-out infinite alternate; }
+.shard--2 { animation: shardFloat 32s ease-in-out infinite alternate-reverse; }
+.shard--3 { animation: shardFloat 22s ease-in-out infinite alternate; animation-delay: -8s; }
+.shard--4 { animation: shardFloat 36s ease-in-out infinite alternate-reverse; animation-delay: -14s; }
+.shard--5 { animation: shardFloat 28s ease-in-out infinite alternate; animation-delay: -5s; }
+
+@keyframes shardFloat {
+  from { transform: translate(0, 0) rotate(-4deg); }
+  to { transform: translate(18px, -26px) rotate(5deg); }
+}
+
+.bg-scene__particle {
+  fill: rgba(255, 120, 60, 0.8);
+  animation: particlePulse 4s ease-in-out infinite;
+}
+
+.bg-scene__particle.p2 { animation-delay: -1s; fill: rgba(120, 160, 255, 0.7); }
+.bg-scene__particle.p3 { animation-delay: -2s; }
+.bg-scene__particle.p4 { animation-delay: -0.5s; fill: rgba(120, 160, 255, 0.6); }
+.bg-scene__particle.p5 { animation-delay: -3s; }
+.bg-scene__particle.p6 { animation-delay: -1.7s; }
+
+@keyframes particlePulse {
+  0%, 100% { opacity: 0.25; }
+  50% { opacity: 0.9; }
+}
+
+.bg-scene__vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 50%, rgba(0, 0, 0, 0.55) 100%);
+}
+
 /* ============ Buttons ============ */
 .btn {
   display: inline-block;
@@ -396,7 +487,7 @@ strong {
 }
 
 .section--alt {
-  background: var(--bg-alt);
+  background: rgba(17, 17, 17, 0.72);
 }
 
 .section__title {
@@ -877,7 +968,7 @@ strong {
 .footer {
   padding: 32px 0;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  background: var(--bg-alt);
+  background: rgba(17, 17, 17, 0.85);
 }
 
 .footer__inner {
@@ -932,6 +1023,10 @@ strong {
     animation: none;
   }
   .project {
+    animation: none;
+  }
+  .shard,
+  .bg-scene__particle {
     animation: none;
   }
 }
