@@ -409,6 +409,25 @@ strong {
   font-size: 30px;
 }
 
+.project__logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  object-fit: contain;
+  background: rgba(204, 214, 246, 0.06);
+  padding: 5px;
+}
+
+.timeline__logo {
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  object-fit: contain;
+  vertical-align: -4px;
+  margin-right: 6px;
+  background: rgba(204, 214, 246, 0.08);
+}
+
 .project__links a {
   font-size: 20px;
   color: var(--text-dim);
