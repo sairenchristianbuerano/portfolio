@@ -1,0 +1,617 @@
+/* ============ Design tokens ============ */
+:root {
+  --bg: #0a192f;
+  --bg-alt: #112240;
+  --card: #112240;
+  --text: #ccd6f6;
+  --text-dim: #8892b0;
+  --accent: #64ffda;
+  --accent-dim: rgba(100, 255, 218, 0.1);
+  --shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+  --nav-h: 72px;
+  --radius: 6px;
+  --transition: 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+/* ============ Base ============ */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--nav-h);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text-dim);
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  color: var(--text);
+  line-height: 1.15;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+.accent {
+  color: var(--accent);
+}
+
+/* ============ Buttons ============ */
+.btn {
+  display: inline-block;
+  padding: 14px 28px;
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  background: transparent;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.btn:hover {
+  background: var(--accent-dim);
+}
+
+.btn--ghost {
+  border-color: var(--text-dim);
+  color: var(--text);
+}
+
+.btn--ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-dim);
+}
+
+.btn--small {
+  padding: 8px 16px;
+  font-size: 13px;
+}
+
+.btn--large {
+  padding: 18px 40px;
+  font-size: 15px;
+}
+
+/* ============ Nav ============ */
+.nav {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: var(--nav-h);
+  background: rgba(10, 25, 47, 0.85);
+  backdrop-filter: blur(10px);
+  z-index: 100;
+  transition: box-shadow var(--transition);
+}
+
+.nav--scrolled {
+  box-shadow: var(--shadow);
+}
+
+.nav__inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav__logo {
+  font-family: var(--font-mono);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav__links a:not(.btn) {
+  color: var(--text);
+  font-size: 14px;
+  font-family: var(--font-mono);
+  transition: color var(--transition);
+}
+
+.nav__links a:not(.btn):hover {
+  color: var(--accent);
+}
+
+.nav__toggle {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 110;
+}
+
+.nav__toggle span {
+  width: 26px;
+  height: 2px;
+  background: var(--accent);
+  transition: transform var(--transition), opacity var(--transition);
+}
+
+.nav__toggle.open span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.nav__toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav__toggle.open span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ============ Hero ============ */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.hero__kicker {
+  color: var(--accent);
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.hero__title {
+  font-size: clamp(40px, 8vw, 72px);
+  font-weight: 800;
+}
+
+.hero__subtitle {
+  font-size: clamp(28px, 6vw, 56px);
+  font-weight: 700;
+  color: var(--text-dim);
+  margin-top: 8px;
+}
+
+.hero__desc {
+  max-width: 560px;
+  margin-top: 24px;
+  font-size: 18px;
+}
+
+.hero__cta {
+  margin-top: 40px;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.hero__scroll {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  color: var(--text-dim);
+  animation: bob 2s ease-in-out infinite;
+}
+
+@keyframes bob {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, 8px); }
+}
+
+/* ============ Sections ============ */
+.section {
+  padding: 110px 0;
+}
+
+.section--alt {
+  background: var(--bg-alt);
+}
+
+.section__title {
+  font-size: clamp(26px, 4vw, 34px);
+  margin-bottom: 48px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section__num {
+  font-size: 0.7em;
+  font-weight: 400;
+}
+
+.section__title::after {
+  content: "";
+  flex: 1;
+  max-width: 280px;
+  height: 1px;
+  background: rgba(136, 146, 176, 0.3);
+  margin-left: 8px;
+}
+
+/* ============ About ============ */
+.about__grid {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.about__text p + p {
+  margin-top: 16px;
+}
+
+.about__list {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(140px, 1fr));
+  gap: 10px;
+  font-size: 14px;
+}
+
+.about__list li::before {
+  content: "▹ ";
+  color: var(--accent);
+}
+
+.about__card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 32px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+.about__avatar {
+  width: 88px;
+  height: 88px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  color: var(--accent);
+}
+
+.about__loc {
+  font-size: 13px;
+  margin: 6px 0 24px;
+}
+
+.about__stats {
+  display: grid;
+  gap: 16px;
+  text-align: left;
+}
+
+.about__stats div {
+  display: flex;
+  flex-direction: column;
+}
+
+.about__stats span {
+  font-size: 13px;
+}
+
+/* ============ Skills ============ */
+.skills__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.skill-card {
+  background: var(--bg);
+  border-radius: var(--radius);
+  padding: 32px;
+  box-shadow: var(--shadow);
+  transition: transform var(--transition);
+}
+
+.skill-card:hover {
+  transform: translateY(-6px);
+}
+
+.skill-card__icon {
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+
+.skill-card h3 {
+  margin-bottom: 16px;
+  font-size: 20px;
+}
+
+.skill-card ul {
+  display: grid;
+  gap: 8px;
+  font-size: 13.5px;
+}
+
+.skill-card li::before {
+  content: "▹ ";
+  color: var(--accent);
+}
+
+/* ============ Projects ============ */
+.projects__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.project {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition);
+}
+
+.project:hover {
+  transform: translateY(-6px);
+}
+
+.project__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.project__folder {
+  font-size: 30px;
+}
+
+.project__links a {
+  font-size: 20px;
+  color: var(--text-dim);
+  transition: color var(--transition);
+}
+
+.project__links a:hover {
+  color: var(--accent);
+}
+
+.project h3 {
+  font-size: 19px;
+  margin-bottom: 10px;
+}
+
+.project p {
+  font-size: 14.5px;
+  flex: 1;
+}
+
+.project__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  margin-top: 18px;
+  font-size: 12px;
+  color: var(--text-dim);
+}
+
+/* ============ Experience timeline ============ */
+.timeline {
+  position: relative;
+  max-width: 720px;
+  padding-left: 36px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 6px;
+  bottom: 6px;
+  width: 2px;
+  background: rgba(136, 146, 176, 0.3);
+}
+
+.timeline__item {
+  position: relative;
+  padding-bottom: 44px;
+}
+
+.timeline__item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline__dot {
+  position: absolute;
+  left: -36px;
+  top: 6px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--accent);
+}
+
+.timeline__date {
+  font-size: 13px;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+
+.timeline__item h3 {
+  font-size: 19px;
+  margin-bottom: 8px;
+}
+
+/* ============ Contact ============ */
+.contact__inner {
+  max-width: 640px;
+  text-align: center;
+}
+
+.contact__title {
+  font-size: clamp(32px, 6vw, 50px);
+  margin: 12px 0 20px;
+}
+
+.contact__desc {
+  margin-bottom: 40px;
+}
+
+/* ============ Footer ============ */
+.footer {
+  padding: 32px 0;
+  border-top: 1px solid rgba(136, 146, 176, 0.15);
+}
+
+.footer__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.footer__socials {
+  display: flex;
+  gap: 24px;
+}
+
+.footer__socials a {
+  color: var(--text-dim);
+  font-size: 14px;
+  transition: color var(--transition);
+}
+
+.footer__socials a:hover {
+  color: var(--accent);
+}
+
+.footer__credit {
+  font-size: 12px;
+}
+
+/* ============ Reveal animation ============ */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .hero__scroll {
+    animation: none;
+  }
+}
+
+/* ============ Responsive ============ */
+@media (max-width: 900px) {
+  .skills__grid,
+  .projects__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about__card {
+    max-width: 420px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav__toggle {
+    display: flex;
+  }
+
+  .nav__links {
+    position: fixed;
+    inset: 0 0 0 30%;
+    background: var(--bg-alt);
+    flex-direction: column;
+    justify-content: center;
+    gap: 36px;
+    transform: translateX(100%);
+    transition: transform var(--transition);
+    box-shadow: -10px 0 30px rgba(2, 12, 27, 0.7);
+  }
+
+  .nav__links.open {
+    transform: translateX(0);
+  }
+
+  .section {
+    padding: 80px 0;
+  }
+}
+
+@media (max-width: 560px) {
+  .skills__grid,
+  .projects__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about__list {
+    grid-template-columns: 1fr;
+  }
+
+  body {
+    font-size: 16px;
+  }
+}
