@@ -16,9 +16,10 @@
       <a href="#home" class="nav__logo">SCB<span class="accent">.</span></a>
       <nav class="nav__links" id="navLinks">
         <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Work</a>
+        <a href="#services">Services</a>
+        <a href="#projects">Portfolio</a>
         <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
         <a href="#contact" class="btn btn--small">Hire Me!</a>
       </nav>
       <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">
@@ -31,18 +32,31 @@
     <!-- ============ HERO ============ -->
     <section class="hero" id="home">
       <div class="container hero__inner">
-        <span class="hero__chip reveal">Hello, I am</span>
-        <h1 class="hero__title reveal">Sairen Christian Buerano<span class="accent">.</span></h1>
-        <h2 class="hero__subtitle reveal">I ship production software — front to back.</h2>
-        <p class="hero__desc reveal">
-          <strong>Full-Stack Software Engineer</strong> with ~5 years shipping production
-          software. I build and maintain real-world systems — from enterprise security
-          platforms to AI agent tooling — and I care about reliable, well-documented
-          code that businesses can depend on.
-        </p>
-        <div class="hero__cta reveal">
-          <a href="#projects" class="btn">View My Work</a>
-          <a href="#contact" class="btn btn--ghost">Get In Touch</a>
+        <div class="hero__content">
+          <span class="hero__chip reveal">Hello, I am</span>
+          <h1 class="hero__title reveal">Sairen Christian Buerano<span class="accent">.</span></h1>
+          <h2 class="hero__subtitle reveal">Full-Stack Software Engineer</h2>
+          <p class="hero__desc reveal">
+            ~5 years shipping production software. I build and maintain real-world
+            systems — from enterprise security platforms to AI agent tooling — and
+            I care about reliable, well-documented code that businesses can depend on.
+          </p>
+          <div class="hero__cta reveal">
+            <a href="#projects" class="btn">My Work</a>
+            <a href="#contact" class="btn btn--ghost">Get In Touch</a>
+          </div>
+        </div>
+        <div class="hero__visual reveal">
+          <svg class="hero__lines" viewBox="0 0 400 400" fill="none" aria-hidden="true">
+            <path d="M40 320 L200 40 L360 320 Z" stroke="rgba(255,255,255,0.18)" stroke-width="1.5" />
+            <path d="M90 350 L200 120 L330 280 Z" stroke="rgba(255,90,0,0.45)" stroke-width="1.5" />
+            <path d="M20 200 L380 160" stroke="rgba(255,255,255,0.12)" stroke-width="1" />
+            <path d="M60 80 L340 360" stroke="rgba(255,90,0,0.25)" stroke-width="1" />
+            <circle cx="200" cy="200" r="160" stroke="rgba(255,255,255,0.07)" stroke-width="1" />
+          </svg>
+          <div class="hero__frame">
+            <img src="assets/img/portrait.jpg" alt="Portrait of Sairen Christian Buerano" class="hero__portrait" width="420" height="420" />
+          </div>
         </div>
       </div>
       <div class="hero__scroll mono">scroll ↓</div>
@@ -51,10 +65,10 @@
     <!-- ============ STATS ============ -->
     <section class="stats">
       <div class="container stats__grid">
-        <div class="stat stat--highlight reveal"><strong>5+</strong><span>Years Experience</span></div>
-        <div class="stat reveal"><strong>4</strong><span>CI/CD Platforms Shipped</span></div>
-        <div class="stat reveal"><strong>6</strong><span>Open-Source Projects</span></div>
-        <div class="stat reveal"><strong>3</strong><span>Companies</span></div>
+        <div class="stat stat--highlight reveal"><strong data-count="5" data-suffix="+">0+</strong><span>Years Experience</span></div>
+        <div class="stat reveal"><strong data-count="4">0</strong><span>CI/CD Platforms Shipped</span></div>
+        <div class="stat reveal"><strong data-count="6">0</strong><span>Open-Source Projects</span></div>
+        <div class="stat reveal"><strong data-count="3">0</strong><span>Companies</span></div>
       </div>
     </section>
 
@@ -100,8 +114,47 @@
       </div>
     </section>
 
+    <!-- ============ SERVICES ============ -->
+    <section class="section section--alt" id="services">
+      <div class="container">
+        <h2 class="section__title reveal">My Services</h2>
+        <div class="services__grid">
+          <div class="service-card reveal">
+            <div class="service-card__icon">🌐</div>
+            <h3>Full-Stack Web Development</h3>
+            <p>End-to-end apps — Next.js/React frontends, Node/Go/Python backends, PostgreSQL data layers.</p>
+          </div>
+          <div class="service-card reveal">
+            <div class="service-card__icon">⚡</div>
+            <h3>API Design &amp; Integration</h3>
+            <p>REST APIs, third-party integrations, auth flows, and platform APIs done right.</p>
+          </div>
+          <div class="service-card reveal">
+            <div class="service-card__icon">🔁</div>
+            <h3>CI/CD Pipeline Engineering</h3>
+            <p>Native pipeline integrations for GitHub, GitLab, Azure DevOps, and Bitbucket — shipped to their marketplaces.</p>
+          </div>
+          <div class="service-card reveal">
+            <div class="service-card__icon">🛡️</div>
+            <h3>Security Tooling</h3>
+            <p>SAST, SBOM generation, and vulnerability scanning — contributor to scanners used in production.</p>
+          </div>
+          <div class="service-card reveal">
+            <div class="service-card__icon">🤖</div>
+            <h3>AI Agent Tooling</h3>
+            <p>Agent reliability, MCP integrations, and hardening for Claude Agent SDK, OpenAI Agents SDK, and Google ADK stacks.</p>
+          </div>
+          <div class="service-card reveal">
+            <div class="service-card__icon">🔧</div>
+            <h3>Maintenance &amp; Debugging</h3>
+            <p>Production support across frontend, API, and database layers — reliability and deployment workflow improvements.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ============ SKILLS ============ -->
-    <section class="section section--alt" id="skills">
+    <section class="section" id="skills">
       <div class="container">
         <h2 class="section__title reveal">My Skills</h2>
         <div class="skills__grid">
@@ -145,11 +198,17 @@
     </section>
 
     <!-- ============ PROJECTS ============ -->
-    <section class="section" id="projects">
+    <section class="section section--alt" id="projects">
       <div class="container">
         <h2 class="section__title reveal">My Portfolio</h2>
+        <div class="filters reveal">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="cicd">CI/CD</button>
+          <button class="filter-btn" data-filter="security">Security</button>
+          <button class="filter-btn" data-filter="ai">AI Tooling</button>
+        </div>
         <div class="projects__grid">
-          <article class="project reveal">
+          <article class="project project--featured reveal" data-category="cicd">
             <div class="project__top">
               <img class="project__logo" src="assets/img/trustabl.png" alt="Trustabl logo" width="44" height="44" loading="lazy" />
               <div class="project__links">
@@ -168,7 +227,7 @@
             </ul>
           </article>
 
-          <article class="project reveal">
+          <article class="project reveal" data-category="ai">
             <div class="project__top">
               <img class="project__logo" src="assets/img/trustabl.png" alt="Trustabl logo" width="44" height="44" loading="lazy" />
               <div class="project__links">
@@ -186,7 +245,7 @@
             </ul>
           </article>
 
-          <article class="project reveal">
+          <article class="project reveal" data-category="ai">
             <div class="project__top">
               <img class="project__logo" src="assets/img/trustabl.png" alt="Trustabl logo" width="44" height="44" loading="lazy" />
               <div class="project__links">
@@ -203,14 +262,14 @@
             </ul>
           </article>
 
-          <article class="project reveal">
+          <article class="project reveal" data-category="security">
             <div class="project__top">
               <img class="project__logo" src="assets/img/carbonetes.png" alt="Carbonetes logo" width="44" height="44" loading="lazy" />
               <div class="project__links">
                 <a href="https://github.com/carbonetes/jacked" aria-label="GitHub repo" target="_blank" rel="noopener">↗</a>
               </div>
             </div>
-            <h3>Jacked <span class="mono accent" style="font-size:12px">⭐100+</span></h3>
+            <h3>Jacked <span class="mono project__star">⭐100+</span></h3>
             <p>
               Open-source vulnerability scanner from Carbonetes. Scans applications
               for known vulnerabilities so organizations can take calculated risk
@@ -221,14 +280,14 @@
             </ul>
           </article>
 
-          <article class="project reveal">
+          <article class="project reveal" data-category="security">
             <div class="project__top">
               <img class="project__logo" src="assets/img/carbonetes.png" alt="Carbonetes logo" width="44" height="44" loading="lazy" />
               <div class="project__links">
                 <a href="https://github.com/carbonetes/diggity" aria-label="GitHub repo" target="_blank" rel="noopener">↗</a>
               </div>
             </div>
-            <h3>Diggity <span class="mono accent" style="font-size:12px">⭐100+</span></h3>
+            <h3>Diggity <span class="mono project__star">⭐100+</span></h3>
             <p>
               Open-source SBOM generator for container images, filesystems, and
               archives — discovers packages and libraries for software supply chain
@@ -239,7 +298,7 @@
             </ul>
           </article>
 
-          <article class="project reveal">
+          <article class="project reveal" data-category="security">
             <div class="project__top">
               <img class="project__logo" src="assets/img/carbonetes.png" alt="Carbonetes logo" width="44" height="44" loading="lazy" />
               <div class="project__links">
@@ -261,7 +320,7 @@
     </section>
 
     <!-- ============ EXPERIENCE ============ -->
-    <section class="section section--alt" id="experience">
+    <section class="section" id="experience">
       <div class="container">
         <h2 class="section__title reveal">Experience</h2>
         <div class="timeline">
@@ -295,6 +354,15 @@
             </p>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- ============ FREELANCE CTA ============ -->
+    <section class="cta-band">
+      <div class="container cta-band__inner reveal">
+        <h2>I'm Available for Freelancing</h2>
+        <p>Part-time and freelance roles — 10–20 hrs/week, fully remote.</p>
+        <a href="#contact" class="btn btn--large">Hire Me!</a>
       </div>
     </section>
 
